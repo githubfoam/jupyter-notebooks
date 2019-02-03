@@ -1,6 +1,4 @@
 # jupyter-notebooks
-
-jupyter-notebooks
 ----------------
 
 common AI, AIOps, machine learning, deep learning stuff
