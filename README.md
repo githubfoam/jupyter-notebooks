@@ -6,7 +6,7 @@ common AI, AIOps, machine learning, deep learning stuff
 Deep & Reinforcement Learning:
 
     - LSTM
-    - sklearn-perceptron
+    - Perceptron – Single Artificial Neuron
 
 
 Kaggle:
