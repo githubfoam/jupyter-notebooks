@@ -1,0 +1,40 @@
+---
+matrix:
+  fast_finish: true
+  include:
+
+    - name: "Python 3.5 on bionic"
+      dist: bionic
+      language: python
+      python: 3.5
+    - name: "Python 3.7 on bionic"
+      dist: bionic
+      language: python
+      python: 3.7
+    - name: "Python 3.5 on xenial"
+      dist: xenial
+      language: python
+      python: 3.5
+    - name: "Python 3.7 on xenial"
+      dist: xenial
+      language: python
+      python: 3.7
+
+before_install:
+        - sudo apt-get update
+        - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+install:
+        - bash miniconda.sh -b -p $HOME/miniconda
+        - export PATH="$HOME/miniconda/bin:$PATH"
+        - hash -r
+        - conda config --set always_yes yes --set changeps1 no
+        - conda update -q conda
+        - conda info -a
+        - conda env create -n ~venv-basic-anomaly-detection python=$TRAVIS_PYTHON_VERSION  -f conda_environment.yml
+        - source activate ~venv-basic-anomaly-detection
+script:
+        - set -x
+
+        - py.test
+after_success:
+        - deactivate
