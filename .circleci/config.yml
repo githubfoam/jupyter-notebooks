@@ -1,0 +1,33 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
+jobs:
+  build:
+    executor:
+      name: win/default
+    steps: # multiple shells in the same job
+      - checkout
+      - run:
+          command: conda config --set always_yes yes --set changeps1 no
+          shell: cmd.exe # use Command
+      - run:
+          command: conda update -q conda
+          shell: cmd.exe # use Command
+      - run:
+          command: conda info -a
+          shell: cmd.exe # use Command
+      - run:
+          command: python --version
+          shell: cmd.exe # use Command
+      - run:
+          command: conda env create -n venv-basic-anomaly-detection python=3.7  -f conda_environment.yml
+          shell: cmd.exe # use Command
+      - run:
+          command: conda activate venv-basic-anomaly-detection
+          shell: cmd.exe # use Command
+      - run:
+          # command: python -m pytest test_nb.py
+          command: pytest test_nb.py
+          shell: cmd.exe # use Command
