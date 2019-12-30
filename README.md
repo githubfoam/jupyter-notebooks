@@ -1,8 +1,8 @@
 # jupyter-notebooks
 
-[![CircleCI](https://circleci.com/gh/githubfoam/win-circleci/tree/dev.svg?style=svg)](https://circleci.com/gh/githubfoam/circleci-line/tree/dev)
+ [![Build Status](https://travis-ci.com/githubfoam/choco-travisci.svg?branch=travisci-line)](https://travis-ci.com/githubfoam/travisci-line)  
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/githubfoam/jupyter-notebooks/circleci-line)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/githubfoam/jupyter-notebooks/travisci-line)
 
 ~~~~
 common AI, AIOps, machine learning, deep learning stuff
