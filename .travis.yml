@@ -34,7 +34,6 @@ install:
         - source activate ~venv-basic-anomaly-detection
 script:
         - set -x
-
         - py.test
 after_success:
         - deactivate
