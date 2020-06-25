@@ -1,6 +1,6 @@
 # jupyter-notebooks
 
- [![Build Status](https://travis-ci.com/githubfoam/choco-travisci.svg?branch=travisci-line)](https://travis-ci.com/githubfoam/travisci-line)  
+ [![Build Status](https://travis-ci.com/githubfoam/choco-travisci.svg?branch=master)](https://travis-ci.com/githubfoam/travisci-line)  
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/githubfoam/jupyter-notebooks/travisci-line)
 
