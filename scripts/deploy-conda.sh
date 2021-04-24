@@ -18,7 +18,10 @@ conda config --set always_yes yes --set changeps1 no
 conda update -q conda
 conda info -a
 
-conda env create -n ~venv-basic-anomaly-detection python=`which python3`  -f conda_environment.yml
+export PYTHON_VERSION="3.7"  
+echo $PYTHON_VERSION
+
+conda env create -n ~venv-basic-anomaly-detection python=$PYTHON_VERSION  -f conda_environment.yml
 source activate ~venv-basic-anomaly-detection
 
 py.test
