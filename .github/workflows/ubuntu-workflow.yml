@@ -3,13 +3,15 @@ name: "Ubuntu data science CI workflow"
 
 on:
   push:
-    branches: [ test ]
-
+    branches: [ master ]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month     
+      
 jobs:
 
 
 
-  ubuntu-latest-job:
+  ubuntu-latest-conda-job:
     name: "ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +23,7 @@ jobs:
   
 
 
-  ubuntu-1604-job:
+  ubuntu-1604-conda-job:
     name: "ubuntu-16.04"
     runs-on: ubuntu-16.04
     steps:
@@ -33,7 +35,7 @@ jobs:
 
        
 
-  ubuntu-1804-job:
+  ubuntu-1804-conda-job:
     name: "ubuntu-18.04"
     runs-on: ubuntu-18.04
     steps:
@@ -44,7 +46,7 @@ jobs:
       run: sudo make deploy-conda-latest
        
 
-  ubuntu-2004-job:
+  ubuntu-2004-conda-job:
     name: "ubuntu-20.04"
     runs-on: ubuntu-20.04
     steps:
