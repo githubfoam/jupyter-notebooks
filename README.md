@@ -1,5 +1,6 @@
 # jupyter-notebooks
 
+ [![Build Status](https://travis-ci.com/githubfoam/jupyter-notebooks.svg?branch=master)](https://travis-ci.com/githubfoam/jupyter-notebooks)  
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/githubfoam/jupyter-notebooks/master)  
 
