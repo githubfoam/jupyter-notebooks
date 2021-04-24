@@ -1,0 +1,50 @@
+name: "Ubuntu data science CI workflow"
+
+
+on:
+  push:
+    branches: [ test ]
+
+jobs:
+
+
+
+  ubuntu-latest-job:
+    name: "ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "deploy conda"
+      run: sudo deploy-conda
+  
+
+
+  ubuntu-1604-job:
+    name: "ubuntu-16.04"
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+
+       
+
+  ubuntu-1804-job:
+    name: "ubuntu-18.04"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+
+       
+
+  ubuntu-2004-job:
+    name: "ubuntu-20.04"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
