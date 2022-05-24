@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATE: $(date '+%Y%m%d')
-      IMAGE_NAME: "TH"
+      REPO: "threathunt"
+      IMAGE_NAME: "jpnb"
       # https://docs.github.com/en/actions/learn-github-actions/environment-variables
     steps:
     - uses: actions/checkout@v2
@@ -26,6 +27,6 @@ jobs:
       run: docker build . -t test  
     - name: "build image"
       run: |
-          docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+          docker build . -t $REPO/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
     # - name: "deploy conda-latest"
     #   run: sudo make deploy-conda-latest
