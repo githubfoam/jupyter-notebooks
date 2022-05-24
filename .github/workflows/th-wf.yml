@@ -15,7 +15,7 @@ jobs:
     name: "ubuntu-latest"
     runs-on: ubuntu-latest
     env:
-      DATE_INFO: $(date '+%Y%m%d')
+      # DATE_INFO: $(date '+%Y%m%d')
       REPO_NAME: "threathunt"
       IMAGE_NAME: "jpnb"
       # https://docs.github.com/en/actions/learn-github-actions/environment-variables
@@ -28,9 +28,11 @@ jobs:
     - name: "build image"
       run: |
           set -x
+          echo $(date '+%Y%m%d')
+          DATE_INFO=$(date '+%Y%m%d')
           echo $DATE_INFO
           echo $DATE_INFO.$GITHUB_RUN_ID
-          docker build . -t $REPO/$IMAGE_NAME:$DATE_INFO.$GITHUB_RUN_ID
+          # docker build . -t $REPO/$IMAGE_NAME:$DATE_INFO.$GITHUB_RUN_ID
           # docker build . -t $REPO/$IMAGE_NAME:$DATE
     # - name: "deploy image"
     #   run: |
