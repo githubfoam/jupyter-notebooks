@@ -14,44 +14,16 @@ jobs:
   ubuntu-latest-conda-job:
     name: "ubuntu-latest"
     runs-on: ubuntu-latest
+    env:
+      DATE: $(date '+%Y%m%d')
+      IMAGE_NAME: "TH"
+      # https://docs.github.com/en/actions/learn-github-actions/environment-variables
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status  
-    - name: "deploy conda-latest"
-      run: sudo make deploy-conda-latest
-  
-
-
-  ubuntu-1604-conda-job:
-    name: "ubuntu-16.04"
-    runs-on: ubuntu-16.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status  
-    - name: "deploy conda"
-      run: sudo make deploy-conda      
-
-       
-
-  ubuntu-1804-conda-job:
-    name: "ubuntu-18.04"
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status  
-    - name: "deploy conda-latest"
-      run: sudo make deploy-conda-latest
-       
-
-  ubuntu-2004-conda-job:
-    name: "ubuntu-20.04"
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status 
-    - name: "deploy conda-latest"
-      run: sudo make deploy-conda-latest
+    - name: "build image"
+      run: |
+      docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+    # - name: "deploy conda-latest"
+    #   run: sudo make deploy-conda-latest
