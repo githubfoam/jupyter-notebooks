@@ -27,6 +27,14 @@ jobs:
       run: docker build . -t test  
     - name: "build image"
       run: |
-          docker build . -t $REPO/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+          echo $DATE.$GITHUB_RUN_ID
+          # docker build . -t $REPO/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+          docker build . -t $REPO/$IMAGE_NAME:$DATE
+    # - name: "deploy image"
+    #   run: |
+    #        docker tag $REPO/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID $REPO/$IMAGE_NAME:latest          
+    #        docker tag $REPO/$IMAGE_NAME $REPO/$IMAGE_NAME:$DATE
+    #        docker images
+    #        echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
     # - name: "deploy conda-latest"
     #   run: sudo make deploy-conda-latest
