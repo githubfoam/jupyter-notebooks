@@ -23,6 +23,8 @@ jobs:
     - name: "os fingerprinting"
       run: hostnamectl status  
     - name: "build image"
+      run: docker build . -t test  
+    - name: "build image"
       run: |
         # docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
             docker build . -t test
