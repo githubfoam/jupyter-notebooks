@@ -1,0 +1,29 @@
+name: "threat hunting w jupyter NBs CI workflow"
+
+
+on:
+  push:
+    branches: [ githubactions ]
+  # schedule:
+  #     - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month     
+      
+jobs:
+
+
+
+  ubuntu-latest-conda-job:
+    name: "ubuntu-latest"
+    runs-on: ubuntu-latest
+    env:
+      DATE: $(date '+%Y%m%d')
+      IMAGE_NAME: "TH"
+      # https://docs.github.com/en/actions/learn-github-actions/environment-variables
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "build image"
+      run: |
+      docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+    # - name: "deploy conda-latest"
+    #   run: sudo make deploy-conda-latest
