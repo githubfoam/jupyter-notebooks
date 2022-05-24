@@ -24,6 +24,7 @@ jobs:
       run: hostnamectl status  
     - name: "build image"
       run: |
-        docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+        # docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+        docker build . -t test
     # - name: "deploy conda-latest"
     #   run: sudo make deploy-conda-latest
