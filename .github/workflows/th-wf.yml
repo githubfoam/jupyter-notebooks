@@ -28,11 +28,11 @@ jobs:
     - name: "build image"
       run: |
           set -x
-          echo $(date '+%Y%m%d')
-          DATE_INFO=$(date '+%Y%m%d')
-          echo $DATE_INFO
-          echo $DATE_INFO.$GITHUB_RUN_ID
-          docker build . -t $REPO/$IMAGE_NAME:$DATE_INFO.$GITHUB_RUN_ID
+          # echo $(date '+%Y%m%d')
+          # DATE_INFO=$(date '+%Y%m%d')
+          # echo $DATE_INFO
+          # echo $DATE_INFO.$GITHUB_RUN_ID
+          docker build . -t $REPO/$IMAGE_NAME:$DATE_INFO-$GITHUB_RUN_ID
           docker image ls
           # docker build . -t $REPO/$IMAGE_NAME:$DATE
     # - name: "deploy image"
