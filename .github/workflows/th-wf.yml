@@ -31,8 +31,11 @@ jobs:
           docker build . -t $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID
           docker image ls
           docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
-            jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=60 \
-            --output /tmp/basic-anomaly-detection-py3.ipynb /home/tester/work/basic-anomaly-detection.ipynb
+            jupyter nbconvert --execute --ExecutePreprocessor.timeout=60 \
+            --output /tmp/basic-anomaly-detection-py3.ipynb /home/tester/work/basic-anomaly-detection.ipynb          
+          # docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
+          #   jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=60 \
+          #   --output /tmp/basic-anomaly-detection-py3.ipynb /home/tester/work/basic-anomaly-detection.ipynb
           
     # - name: "make image"
     #   run: |
