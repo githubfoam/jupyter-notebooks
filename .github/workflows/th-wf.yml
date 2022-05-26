@@ -30,7 +30,7 @@ jobs:
           DATE=$(date '+%Y%m%d')
           docker build . -t $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID
           docker image ls
-          docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
+          sudo docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
             jupyter nbconvert --to notebook --execute \
             /home/tester/work/jupyter-notebooks/basic-anomaly-detection.ipynb          
           # docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
