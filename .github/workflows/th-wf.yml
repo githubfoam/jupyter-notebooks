@@ -27,14 +27,13 @@ jobs:
     - name: "build image"
       run: |
           set -x
-          # echo $(date '+%Y%m%d')
           DATE=$(date '+%Y%m%d')
-          # echo $DATE_INFO
-          # echo $DATE_INFO.$GITHUB_RUN_ID
           docker build . -t $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID
-          # docker build . -t $REPO/$IMAGE:$GITHUB_RUN_ID
           docker image ls
-          # docker build . -t $REPO/$IMAGE_NAME:$DATE
+          docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
+            jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=60 \
+            --output /tmp/basic-anomaly-detection-py3.ipynb /home/tester/work/basic-anomaly-detection.ipynb
+          
     # - name: "make image"
     #   run: |
     #       set -x  

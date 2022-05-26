@@ -14,5 +14,4 @@ RUN jupyter labextension install --minimize=false jupyterlab-plotly  @jupyterlab
 
 RUN /opt/conda/bin/python -c 'import plotly' 
 
-RUN mkdir -p /home/${NB_USER}/.jupyter ; JUPYTER_NB_PASS=${JUPYTER_NB_PASS}  python /tmp/passwd-helper.py >> /home/${NB_USER}/.jupyter/jupyter_notebook_config.py
-
+ENV PYTHONPATH "/home/${NB_USER}/work/lib:$PYTHONPATH"
