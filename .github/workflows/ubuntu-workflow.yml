@@ -22,8 +22,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status  
-    - name: "build image"
+    - name: "run NB"
       run: |
-      docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
+        pip install jupyter        
+        jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
+    # - name: "build image"
+    #   run: |
+    #   docker build . -t $GITHUB_REPOSITORY/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID
     # - name: "deploy conda-latest"
     #   run: sudo make deploy-conda-latest
