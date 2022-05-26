@@ -26,6 +26,7 @@ jobs:
       run: |
         pip install jupyter  
         pip install numpy #ModuleNotFoundError: No module named 'numpy'    
+        pip install matplotlib #ModuleNotFoundError: No module named 'matplotlib'  
         pip install markupsafe==2.0.1 #ImportError: cannot import name 'soft_unicode' from 'markupsafe'  
         jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
     # - name: "build image"
