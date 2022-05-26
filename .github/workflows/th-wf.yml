@@ -32,7 +32,7 @@ jobs:
           docker image ls
           docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
             jupyter nbconvert --to notebook --execute \
-            jupyter-notebooks/basic-anomaly-detection.ipynb          
+            /home/tester/work/jupyter-notebooks/basic-anomaly-detection.ipynb          
           # docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
           #   jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=60 \
           #   --output /tmp/basic-anomaly-detection-py3.ipynb /home/tester/work/basic-anomaly-detection.ipynb

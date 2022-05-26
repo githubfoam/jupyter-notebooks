@@ -24,7 +24,8 @@ jobs:
       run: hostnamectl status  
     - name: "run NB"
       run: |
-        pip install jupyter        
+        pip install jupyter  
+        pip install numpy #ModuleNotFoundError: No module named 'numpy'      
         jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
     # - name: "build image"
     #   run: |
