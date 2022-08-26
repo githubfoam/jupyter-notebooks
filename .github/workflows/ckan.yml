@@ -1,0 +1,51 @@
+name: "CKAN NBs CI workflow"
+
+
+on:
+  push:
+    branches: [ githubactions ]
+  # schedule:
+  #     - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month     
+      
+jobs:
+
+
+
+  ubuntu-latest-conda-job:
+    name: "CKAN  ubuntu-latest"
+    runs-on: ubuntu-latest
+    # env:
+    #   REPO: "threathunt"
+    #   IMAGE: "jpnb"
+    #   # https://docs.github.com/en/actions/learn-github-actions/environment-variables
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    # - name: "build image"
+    #   run: docker build . -t test  
+    # - name: "build image"
+    #   run: |
+    #       set -x
+    #       DATE=$(date '+%Y%m%d')
+    #       docker build . -t $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID
+    #       docker image ls
+    #       sudo docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
+    #         jupyter nbconvert --to notebook --execute \
+    #         /home/tester/work/jupyter-notebooks/basic-anomaly-detection.ipynb          
+    #       # docker run -v `pwd`:/home/tester/work $REPO/$IMAGE:$DATE.$GITHUB_RUN_ID \
+    #       #   jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=60 \
+    #       #   --output /tmp/basic-anomaly-detection-py3.ipynb /home/tester/work/basic-anomaly-detection.ipynb
+          
+    - name: "make image"
+      run: |
+          set -x  
+          make deploy-ckan        
+    # - name: "deploy image"
+    #   run: |
+    #        docker tag $REPO/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID $REPO/$IMAGE_NAME:latest          
+    #        docker tag $REPO/$IMAGE_NAME $REPO/$IMAGE_NAME:$DATE
+    #        docker images
+    #        echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
+    # - name: "deploy conda-latest"
+    #   run: sudo make deploy-conda-latest
