@@ -46,6 +46,7 @@ jobs:
       run: |
            pwd
            whoami
+           cd /tmp/ckan
            sudo usermod -aG docker $USER # Add your user to the docker group\
            id $USER  
            cd contrib/docker
