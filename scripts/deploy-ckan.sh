@@ -43,8 +43,11 @@ cat ckan/Dockerfile.dev
 
 docker-compose -f docker-compose.dev.yml up --build &
 jobs -l 
+sleep 15
 
 docker-compose -f docker-compose.dev.yml ps # Lists containers.
+sleep 10
+
 docker-compose images #List images used by the created containers
 docker-compose logs
 
