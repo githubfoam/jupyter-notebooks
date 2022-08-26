@@ -34,7 +34,9 @@ cd docker-ckan
 cp .env.example .env
 
 usermod -aG docker $USER
-docker-compose -f docker-compose.dev.yml up --build
+docker-compose -f docker-compose.dev.yml up --build &
+jobs -l 
+
 # curl http://localhost:5000
 
 deactivate
