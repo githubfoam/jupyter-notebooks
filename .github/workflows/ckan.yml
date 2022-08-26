@@ -51,3 +51,13 @@ jobs:
            id $USER  
            cd contrib/docker
            docker-compose up -d --build        
+    - name: "docker-compose logs -f ckan"
+      run: |
+           pwd
+           whoami
+           cd /tmp/ckan/contrib/docker
+           docker-compose restart ckan
+           docker-compose config
+           docker-compose images
+           docker-compose ps   
+           docker-compose logs -f ckan
