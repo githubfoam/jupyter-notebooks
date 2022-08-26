@@ -1,9 +1,6 @@
 
-build:	
-	DATE_INFO=$(date '+%Y%m%d')
-	REPO_NAME="threathunt"
-    IMAGE_NAME="jpnb"
-	docker build  -t $(REPO)/$(IMAGE_NAME:latest
+deploy-ckan:
+	bash scripts/deploy-ckan.sh
 
 deploy-conda-latest:
 	bash scripts/deploy-conda-latest.sh
