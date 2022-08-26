@@ -32,11 +32,13 @@ jobs:
            whoami
            sudo apt-get -qq update
            docker-compose --version
-    - name: "docker-compose --version"
+    - name: "git clone"
       run: |
            pwd
            whoami
            cd /tmp
-           git clone https://github.com/okfn/docker-ckan
-           cd docker-ckan          
-           cp .env.example .env
+           git clone https://github.com/ckan/ckan.git 
+           cd ckan          
+           git checkout tags/ckan-2.9.5
+           cp contrib/docker/.env.template contrib/docker/.env
+           cat contrib/docker/.env
