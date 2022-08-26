@@ -28,5 +28,14 @@ source activate ~venv-ckan
 apt-get -qq update
 docker-compose --version
 
+git clone https://github.com/okfn/docker-ckan
+cd docker-ckan
+
+cp .env.example .env
+
+usermod -aG docker $USER
+docker-compose -f docker-compose.dev.yml up --build
+# curl http://localhost:5000
+
 deactivate
 echo "========================================================================================="
