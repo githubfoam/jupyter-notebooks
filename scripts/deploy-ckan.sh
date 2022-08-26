@@ -36,6 +36,9 @@ cp .env.example .env
 usermod -aG docker $USER
 docker-compose -f docker-compose.dev.yml up --build &
 jobs -l 
+docker-compose ps # Lists containers.
+docker-compose images #List images used by the created containers
+docker-compose logs
 
 # curl http://localhost:5000
 
