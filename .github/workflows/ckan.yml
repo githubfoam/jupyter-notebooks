@@ -40,7 +40,7 @@ jobs:
     - name: "make image"
       run: |
           set -x  
-          make deploy-ckan        
+          sudo make deploy-ckan        
     # - name: "deploy image"
     #   run: |
     #        docker tag $REPO/$IMAGE_NAME:$DATE.$GITHUB_RUN_ID $REPO/$IMAGE_NAME:latest          
