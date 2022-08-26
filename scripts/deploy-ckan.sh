@@ -40,7 +40,8 @@ docker-compose ps # Lists containers.
 docker-compose images #List images used by the created containers
 docker-compose logs
 
+netstat -tunlp | grep 5000
 # curl http://localhost:5000
 
-deactivate
+conda deactivate
 echo "========================================================================================="
