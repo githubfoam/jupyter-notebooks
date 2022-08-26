@@ -42,3 +42,11 @@ jobs:
            git checkout tags/ckan-2.9.5
            cp contrib/docker/.env.template contrib/docker/.env
            cat contrib/docker/.env
+    - name: "docker-compose up -d --build  "
+      run: |
+           pwd
+           whoami
+           sudo usermod -aG docker $USER # Add your user to the docker group\
+           id $USER  
+           cd contrib/docker
+           docker-compose up -d --build        
