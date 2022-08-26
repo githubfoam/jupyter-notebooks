@@ -33,9 +33,16 @@ cd docker-ckan
 
 cp .env.example .env
 
+#docker without sudo
 usermod -aG docker $USER
+
+#Change the storage directory ownership from root to ckan
+echo "RUN mkdir -p /var/lib/ckan/storage/uploads" | sudo tee -a ckan/Dockerfile.dev
+echo "RUN chown -R ckan:ckan /var/lib/ckan/storage" | sudo tee -a ckan/Dockerfile.dev
+
 docker-compose -f docker-compose.dev.yml up --build &
 jobs -l 
+
 docker-compose ps # Lists containers.
 docker-compose images #List images used by the created containers
 docker-compose logs
