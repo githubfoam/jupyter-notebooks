@@ -51,7 +51,7 @@ jobs:
            id $USER  
            cd contrib/docker
            docker-compose up -d --build        
-    - name: "docker-compose logs -f ckan"
+    - name: "docker-compose  > log.out -f ckan"
       run: |
            pwd
            whoami
@@ -60,4 +60,5 @@ jobs:
            docker-compose config
            docker-compose images
            docker-compose ps   
-           docker-compose logs -f ckan
+           docker-compose logs -f ckan > log.out
+           cat log.out
